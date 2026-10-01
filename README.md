@@ -47,7 +47,7 @@ This is a port of DRG Flares to **NeoForge 1.21.1** (Java 21), built with **Grad
 
 Windows:
 ```bat
-gradlew.bat build
+.\gradlew.bat build
 ```
 
 Linux / macOS:
@@ -61,12 +61,12 @@ The mod jar is produced at `neoforge/build/libs/DRGFlares-<minecraft_version>-Ne
 
 | Command | What it does |
 | --- | --- |
-| `gradlew.bat clean build` | Clean rebuild (removes `build/` first) |
-| `gradlew.bat :neoforge:runClient` | Launch the game in a dev client for testing |
-| `gradlew.bat :neoforge:runServer` | Launch a dev dedicated server for testing |
-| `gradlew.bat :neoforge:compileJava` | Compile only (faster, for checking errors) |
+| `.\gradlew.bat clean build` | Clean rebuild (removes `build/` first) |
+| `.\gradlew.bat :neoforge:runClient` | Launch the game in a dev client for testing |
+| `.\gradlew.bat :neoforge:runServer` | Launch a dev dedicated server for testing |
+| `.\gradlew.bat :neoforge:compileJava` | Compile only (faster, for checking errors) |
 
-(Use `./gradlew` instead of `gradlew.bat` on Linux/macOS.)
+(Use `./gradlew` instead of `.\gradlew.bat` on Linux/macOS.)
 
 ### Troubleshooting
 - **First build is slow** — it downloads and decompiles Minecraft; subsequent builds are much faster.

@@ -47,7 +47,7 @@ _"我是不是听到了一声 Rock and Stone?"_
 
 Windows：
 ```bat
-gradlew.bat build
+.\gradlew.bat build
 ```
 
 Linux / macOS：
@@ -61,12 +61,12 @@ Linux / macOS：
 
 | 命令 | 作用 |
 | --- | --- |
-| `gradlew.bat clean build` | 清理并重新构建（先删除 `build/`） |
-| `gradlew.bat :neoforge:runClient` | 在开发客户端中启动游戏进行测试 |
-| `gradlew.bat :neoforge:runServer` | 启动开发专用服务器进行测试 |
-| `gradlew.bat :neoforge:compileJava` | 只编译（更快，用于检查错误） |
+| `.\gradlew.bat clean build` | 清理并重新构建（先删除 `build/`） |
+| `.\gradlew.batt :neoforge:runClient` | 在开发客户端中启动游戏进行测试 |
+| `.\gradlew.bat :neoforge:runServer` | 启动开发专用服务器进行测试 |
+| `.\gradlew.bat :neoforge:compileJava` | 只编译（更快，用于检查错误） |
 
-（Linux/macOS 上把 `gradlew.bat` 换成 `./gradlew`。）
+（Linux/macOS 上把 `.\gradlew.bat` 换成 `./gradlew`。）
 
 ### 故障排查
 - **首次构建很慢** —— 需要下载并反编译 Minecraft；后续构建会快很多。
