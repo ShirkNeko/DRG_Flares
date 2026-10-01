@@ -1,0 +1,60 @@
+plugins {
+    id 'java-library'
+    id 'net.neoforged.moddev'
+}
+
+version = project.mod_version
+group = project.mod_group_id
+
+base {
+    // <ModName>-<MCVersion>-<Loader>-<ModVersion>, e.g. DRGFlares-1.21.1-NeoForge-1.3.0.jar
+    archivesName = "DRGFlares-${project.minecraft_version}-NeoForge"
+}
+
+java {
+    toolchain.languageVersion = JavaLanguageVersion.of(21)
+    withSourcesJar()
+}
+
+neoForge {
+    version = project.neo_version
+
+    runs {
+        client {
+            client()
+        }
+        server {
+            server()
+        }
+    }
+
+    mods {
+        "${project.mod_id}" {
+            sourceSet sourceSets.main
+        }
+    }
+}
+
+repositories {
+    mavenCentral()
+    maven { url = 'https://maven.shedaniel.me/' }
+    maven { url = 'https://maven.neoforged.net/releases' }
+}
+
+dependencies {
+    implementation project(':common')
+    compileOnly "me.shedaniel.cloth:cloth-config-neoforge:${project.cloth_config_version}"
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}
+
+// Pack the shared common classes (and any common resources) into the NeoForge jar.
+jar {
+    from(project(':common').sourceSets.main.output)
+}
+
+sourcesJar {
+    from(project(':common').sourceSets.main.allJava)
+}

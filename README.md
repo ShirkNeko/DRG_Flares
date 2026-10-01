@@ -64,16 +64,16 @@ Linux / macOS:
 ./gradlew build
 ```
 
-The mod jar is produced at `build/libs/drg_flares-<version>.jar` (e.g. `drg_flares-1.2.8.jar`).
+The mod jar is produced at `neoforge/build/libs/DRGFlares-<minecraft_version>-NeoForge-<version>.jar` (e.g. `DRGFlares-1.21.1-NeoForge-1.3.0.jar`).
 
 ### Other useful commands
 
 | Command | What it does |
 | --- | --- |
 | `gradlew.bat clean build` | Clean rebuild (removes `build/` first) |
-| `gradlew.bat runClient` | Launch the game in a dev client for testing |
-| `gradlew.bat runServer` | Launch a dev dedicated server for testing |
-| `gradlew.bat compileJava` | Compile only (faster, for checking errors) |
+| `gradlew.bat :neoforge:runClient` | Launch the game in a dev client for testing |
+| `gradlew.bat :neoforge:runServer` | Launch a dev dedicated server for testing |
+| `gradlew.bat :neoforge:compileJava` | Compile only (faster, for checking errors) |
 
 (Use `./gradlew` instead of `gradlew.bat` on Linux/macOS.)
 
