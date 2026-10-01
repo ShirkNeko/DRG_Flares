@@ -1,4 +1,4 @@
-# DRG Flares (Forge / Fabric)
+# DRG Flares (NeoForge 1.21.1)
 
 ## Showcase Video
 [![Video Demonstration](https://user-images.githubusercontent.com/701551/149723954-4e4b0d37-10c3-4a06-90c8-85882124f1b9.png)](https://youtu.be/IlnwIly0Qh0)
@@ -44,14 +44,49 @@ Survival Flares and Server-Side Light Sources also won't work unless installed o
 
 **Warning!** As with most client-side mods, there's a chance to trigger anti-cheat systems installed on public servers. Use it at your own risk.
 
+## Building
+
+This is a port of DRG Flares to **NeoForge 1.21.1** (Java 21), built with **Gradle 8.14.3** (the project already ships the Gradle wrapper, so you don't need a global Gradle install).
+
+### Prerequisites
+- **JDK 21** (64-bit) — make sure `JAVA_HOME` points to it, or it's on your `PATH`.
+- An internet connection (the first build downloads Gradle, NeoForge and Minecraft, which can take a while).
+
+### Build the mod jar
+
+Windows:
+```bat
+gradlew.bat build
+```
+
+Linux / macOS:
+```bash
+./gradlew build
+```
+
+The mod jar is produced at `build/libs/drg_flares-<version>.jar` (e.g. `drg_flares-1.2.8.jar`).
+
+### Other useful commands
+
+| Command | What it does |
+| --- | --- |
+| `gradlew.bat clean build` | Clean rebuild (removes `build/` first) |
+| `gradlew.bat runClient` | Launch the game in a dev client for testing |
+| `gradlew.bat runServer` | Launch a dev dedicated server for testing |
+| `gradlew.bat compileJava` | Compile only (faster, for checking errors) |
+
+(Use `./gradlew` instead of `gradlew.bat` on Linux/macOS.)
+
+### Troubleshooting
+- **First build is slow** — it downloads and decompiles Minecraft; subsequent builds are much faster.
+- **`maven.neoforged.net` TLS / handshake errors** while downloading dependencies — if you're behind a network that breaks IPv6 or TLS, add `-Djava.net.preferIPv4Stack=true` to `org.gradle.jvmargs` in `gradle.properties` (this project already has it set).
+
 ## Installation
-Grab the jar file from CurseForge: [Fabric Version](https://www.curseforge.com/minecraft/mc-mods/drg-flares) and [Forge Version](https://www.curseforge.com/minecraft/mc-mods/drg-flares-forge)
+Copy the jar file into `%root_folder%/mods/` alongside other mods.
 
 Copy the jar file into `%root_folder%/mods/` alongside other mods.
 
-Fabric version has a dependency: [Fabric API](https://www.curseforge.com/minecraft/mc-mods/fabric-api), which is used by most Fabric mods anyway.
-
-It's also highly recommended to install Cloth Config [(Fabric)](https://www.curseforge.com/minecraft/mc-mods/cloth-config) or [(Forge)](https://www.curseforge.com/minecraft/mc-mods/cloth-config-forge) on the Client to enable the in-game settings menu.
+It's highly recommended to install [Cloth Config](https://www.curseforge.com/minecraft/mc-mods/cloth-config) (NeoForge build) on the Client to enable the in-game settings menu; without it, configs have to be manually edited at `config/drg_flares_client.json` and `config/drg_flares_server.json`.
 
 ## Settings
 Cloth Config is an optional client-side dependency that enables the in-game settings menu.
